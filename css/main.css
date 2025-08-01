@@ -76,33 +76,16 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-  /* Ensure content is visible by default */
+  /* Content is always visible */
   opacity: 1;
   visibility: visible;
 }
 
-/* Loading screen will hide content initially */
-body:not(.loaded) .hero,
-body:not(.loaded) .section {
-  opacity: 0;
-}
-
-/* Content becomes visible when loaded */
-body.loaded .hero,
-body.loaded .section {
+/* Ensure all content is visible immediately */
+.hero,
+.section {
   opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-/* Fallback: If JS fails, show content after 5s */
-@keyframes showContentFallback {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-body:not(.loaded) .hero,
-body:not(.loaded) .section {
-  animation: showContentFallback 0.5s ease-in-out 5s forwards;
+  visibility: visible;
 }
 
 /* Subtle Body Background */
@@ -175,21 +158,15 @@ body {
   opacity: 0.5;
 }
 
-/* Loading Screen */
+/* Loading Screen - DISABLED FOR DEPLOYMENT */
+/*
 .loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: var(--gradient-hero);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: var(--z-loading);
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  display: none !important;
 }
+*/
 
+/* Loading Screen - DISABLED FOR DEPLOYMENT */
+/*
 .loading-screen.hidden {
   opacity: 0;
   visibility: hidden;
@@ -299,6 +276,7 @@ body {
 .particle:nth-child(3) { left: 60%; animation-delay: 1s; }
 .particle:nth-child(4) { left: 80%; animation-delay: 1.5s; }
 .particle:nth-child(5) { left: 90%; animation-delay: 2s; }
+*/
 
 /* Scroll Progress */
 .scroll-progress {

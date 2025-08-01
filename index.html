@@ -40,35 +40,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-container">
-            <div class="loading-logo">
-                <div class="logo-ring"></div>
-                <div class="logo-core">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-            </div>
-            <div class="loading-text">
-                <span class="typewriter-text"></span>
-                <span class="cursor-blink">|</span>
-            </div>
-            <div class="loading-progress">
-                <div class="progress-track">
-                    <div class="progress-fill"></div>
-                </div>
-                <div class="progress-percentage">0%</div>
-            </div>
-        </div>
-        <div class="loading-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-    </div>
+<body class="loaded">
 
     <!-- Custom Cursor -->
     <div id="cursor">
@@ -1434,6 +1406,7 @@
     </button>
 
     <!-- Scripts -->
+    <script src="js/main.js"></script>
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/components.js"></script>

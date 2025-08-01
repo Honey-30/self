@@ -2,26 +2,14 @@
 
 class PortfolioApp {
     constructor() {
-        this.loadingTimeout = null;
         this.init();
     }
 
     init() {
         this.setupEventListeners();
         this.initializeComponents();
-        this.startLoadingSequence();
-        
-        // Emergency fallback - ensure content shows even if everything fails
-        this.loadingTimeout = setTimeout(() => {
-            if (!document.body.classList.contains('loaded')) {
-                console.log('Emergency fallback: Forcing content to show');
-                document.body.classList.add('loaded');
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
-                    loadingScreen.style.display = 'none';
-                }
-            }
-        }, 6000);
+        // Skip loading sequence - show content immediately
+        this.initializePortfolio();
     }
 
     setupEventListeners() {
@@ -31,11 +19,6 @@ class PortfolioApp {
             this.initNavigation();
             this.initTypingEffect();
             this.initCounters();
-        });
-
-        // Window Load
-        window.addEventListener('load', () => {
-            this.finishLoading();
         });
 
         // Scroll Events
@@ -61,90 +44,13 @@ class PortfolioApp {
         this.mouseTracker = new MouseTracker();
     }
 
-    startLoadingSequence() {
-        const loadingScreen = document.getElementById('loading-screen');
-        const progressFill = document.querySelector('.progress-fill');
-        const progressPercentage = document.querySelector('.progress-percentage');
-        const typewriterText = document.querySelector('.typewriter-text');
-
-        // Ensure elements exist before proceeding
-        if (!loadingScreen || !progressFill || !progressPercentage || !typewriterText) {
-            console.warn('Loading elements not found, hiding loading screen immediately');
-            this.finishLoading();
-            return;
+    initializePortfolio() {
+        // Initialize GSAP animations immediately
+        try {
+            this.initGSAPAnimations();
+        } catch (error) {
+            console.warn('GSAP animations failed to initialize:', error);
         }
-
-        const messages = [
-            'Initializing portfolio...',
-            'Loading components...',
-            'Setting up animations...',
-            'Preparing content...',
-            'Almost ready...'
-        ];
-
-        let messageIndex = 0;
-        let progress = 0;
-        const maxDuration = 3000; // Maximum 3 seconds
-        const startTime = Date.now();
-
-        const updateProgress = () => {
-            const elapsed = Date.now() - startTime;
-            progress = Math.min((elapsed / maxDuration) * 100, 100);
-
-            progressFill.style.width = `${progress}%`;
-            progressPercentage.textContent = `${Math.round(progress)}%`;
-
-            const newMessageIndex = Math.floor((progress / 100) * messages.length);
-            if (newMessageIndex < messages.length && newMessageIndex !== messageIndex) {
-                messageIndex = newMessageIndex;
-                typewriterText.textContent = messages[messageIndex];
-            }
-
-            if (progress < 100 && elapsed < maxDuration) {
-                requestAnimationFrame(updateProgress);
-            } else {
-                setTimeout(() => this.finishLoading(), 300);
-            }
-        };
-
-        // Start the loading animation
-        requestAnimationFrame(updateProgress);
-
-        // Failsafe: Force completion after 4 seconds
-        setTimeout(() => {
-            if (!document.body.classList.contains('loaded')) {
-                console.log('Loading failsafe triggered');
-                this.finishLoading();
-            }
-        }, 4000);
-    }
-
-    finishLoading() {
-        // Clear the emergency timeout
-        if (this.loadingTimeout) {
-            clearTimeout(this.loadingTimeout);
-            this.loadingTimeout = null;
-        }
-
-        const loadingScreen = document.getElementById('loading-screen');
-        
-        if (loadingScreen) {
-            // Fade out loading screen
-            loadingScreen.classList.add('hidden');
-        }
-        
-        // Mark as loaded immediately
-        document.body.classList.add('loaded');
-        
-        // Initialize GSAP animations with error handling
-        setTimeout(() => {
-            try {
-                this.initGSAPAnimations();
-            } catch (error) {
-                console.warn('GSAP animations failed to initialize:', error);
-                // Continue without animations if GSAP fails
-            }
-        }, 100);
     }
 
     initGSAPAnimations() {
@@ -512,32 +418,18 @@ class MouseTracker {
     }
 }
 
-// Initialize the application with multiple fallbacks
+// Initialize the application immediately
 function initializePortfolio() {
     try {
         new PortfolioApp();
     } catch (error) {
         console.error('Portfolio initialization failed:', error);
-        // Fallback: Show content immediately if initialization fails
-        document.body.classList.add('loaded');
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            loadingScreen.style.display = 'none';
-        }
     }
 }
 
-// Multiple initialization triggers
+// Initialize as soon as possible
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializePortfolio);
 } else {
     initializePortfolio();
 }
-
-// Additional fallback if DOM events fail
-setTimeout(() => {
-    if (!document.body.classList.contains('loaded')) {
-        console.log('Timeout fallback: Initializing portfolio');
-        initializePortfolio();
-    }
-}, 1000);
