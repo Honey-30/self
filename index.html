@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey Nandal | Final Year B.Tech CSE Student | AI/ML Enthusiast | Web Developer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Final Year B.Tech CSE Student at VIT Amravati specializing in AI/ML and Web Development. Building intelligent systems and responsive web interfaces.">
+    <meta name="keywords" content="AI, ML, machine learning, web development, VIT Amravati, CSE student, fake news detection, healthcare chatbot">
+    <meta name="author" content="Honey Nandal">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Honey Nandal | Final Year B.Tech CSE Student | AI/ML Enthusiast">
+    <meta property="og:description" content="AI/ML Specialist & Web Developer from VIT Amravati">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/professional-styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/creative-skills.css">
+    <link rel="stylesheet" href="css/enhanced-sections.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <div class="logo-ring"></div>
+                <div class="logo-core">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+            </div>
+            <div class="loading-text">
+                <span class="typewriter-text"></span>
+                <span class="cursor-blink">|</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-percentage">0%</div>
+            </div>
+        </div>
+        <div class="loading-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Professional</span>
+                        <span class="logo-surname">Portfolio</span>
+                    </div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <i class="nav-icon fas fa-home"></i>
+                        <span class="nav-text">Home</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-section="about">
+                        <i class="nav-icon fas fa-user"></i>
+                        <span class="nav-text">About</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link" data-section="skills">
+                        <i class="nav-icon fas fa-code"></i>
+                        <span class="nav-text">Skills</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#specialization" class="nav-link" data-section="specialization">
+                        <i class="nav-icon fas fa-brain"></i>
+                        <span class="nav-text">AI/ML Specialization</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#academics" class="nav-link" data-section="academics">
+                        <i class="nav-icon fas fa-graduation-cap"></i>
+                        <span class="nav-text">Academics</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link" data-section="projects">
+                        <i class="nav-icon fas fa-folder-open"></i>
+                        <span class="nav-text">Projects</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-section="contact">
+                        <i class="nav-icon fas fa-envelope"></i>
+                        <span class="nav-text">Contact</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </li>
+            </ul>
+            
+            <a href="#contact" class="nav-cta btn btn-primary">
+                <span class="btn-text">Join</span>
+                <span class="btn-icon"><i class="fas fa-handshake"></i></span>
+            </a>
+            
+            <button class="mobile-toggle" id="mobile-toggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="hero-greeting">
+                        <div class="greeting-badge">
+                            <span class="greeting-icon">🤖</span>
+                            <span class="greeting-text">AI/ML Enthusiast</span>
+                        </div>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line title-first">Final Year B.Tech CSE Student</span>
+                        <span class="title-line title-second">AI/ML Enthusiast | Web Developer</span>
+                        <div class="title-decoration">
+                            <div class="decoration-line"></div>
+                            <div class="decoration-dot"></div>
+                        </div>
+                    </h1>
+                    
+                    <div class="hero-subtitle">
+                        <span class="subtitle-prefix">Specialized in</span>
+                        <span class="subtitle-animated"></span>
+                        <span class="subtitle-cursor">|</span>
+                    </div>
+                    
+                    <p class="hero-description">
+                        I'm a final-year Computer Science student at VIT, Amravati, with a specialization in Artificial Intelligence and Machine Learning. 
+                        I thrive in fast-paced environments where learning never stops. My work combines intelligent systems and responsive web interfaces 
+                        to build practical, scalable, and impactful tech solutions.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="4">0</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="8.66">0</div>
+                            <div class="stat-label">CGPA</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="8">0</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary btn-hero">
+                            <span class="btn-text">View Portfolio</span>
+                            <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                        <a href="#contact" class="btn btn-outline btn-hero">
+                            <span class="btn-text">Let's Connect</span>
+                            <span class="btn-icon"><i class="fas fa-handshake"></i></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="profile-card glass-effect">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <div class="avatar-ring"></div>
+                                <div class="avatar-image">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="status-indicator">
+                                    <div class="status-dot"></div>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3 class="profile-name">Honey Nandal</h3>
+                                <p class="profile-title">AI/ML Enthusiast & Web Developer</p>
+                                <div class="profile-status">
+                                    <span class="status-text">Final Year CSE Student</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-content">
+                            <div class="profile-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Rohtak, India</span>
+                            </div>
+                            
+                            <div class="profile-technologies">
+                                <div class="tech-label">Core Technologies</div>
+                                <div class="tech-stack">
+                                    <div class="tech-badge">
+                                        <i class="fab fa-python"></i>
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="tech-badge">
+                                        <i class="fas fa-brain"></i>
+                                        <span>AI/ML</span>
+                                    </div>
+                                    <div class="tech-badge">
+                                        <i class="fab fa-html5"></i>
+                                        <span>Web Dev</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-actions">
+                                <a href="#" class="btn btn-small btn-primary">
+                                    <i class="fas fa-download"></i>
+                                    Resume
+                                </a>
+                                <button class="btn btn-small btn-outline">
+                                    <i class="fas fa-star"></i>
+                                    Follow
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Explore my work</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="title-word">About</span>
+                    <span class="title-word">Me</span>
+                </h2>
+                <p class="section-subtitle">Ambitious graduating undergraduate student with strong desire to learn</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <div class="text-content glass-effect">
+                            <h3 class="content-title">Professional Summary</h3>
+                            <p>
+                                Ambitious graduating undergraduate student in final year with a strong desire to learn and adapt to new challenges. 
+                                Seeking personal and professional growth opportunities through curiosity and a solid work ethic, focusing on continuous 
+                                improvement and making impactful contributions through teamwork.
+                            </p>
+                            <p>
+                                Possessing strong problem-solving abilities, a willingness to learn, and excellent communication skills. 
+                                Poised to enhance team success and deliver positive outcomes, ready to take on new challenges and advance 
+                                organizational objectives with dedication and enthusiasm.
+                            </p>
+                            
+                            <div class="achievement-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Academic Excellence</h4>
+                                        <p>CGPA 8.66 in B.Tech CSE with AI/ML specialization</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>AI/ML Expertise</h4>
+                                        <p>Specialized in Machine Learning, Deep Learning, and NLP</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fas fa-certificate"></i>
+                                    </div>
+                                    <div class="highlight-content">
+                                        <h4>Certified Professional</h4>
+                                        <p>6 industry certifications from Google and Oracle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-visual">
+                        <div class="timeline-container glass-effect">
+                            <h3 class="timeline-title">Education Timeline</h3>
+                            <div class="timeline">
+                                <div class="timeline-item active">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">2022 - 2026</div>
+                                        <h4>B.Tech Computer Science (AI/ML)</h4>
+                                        <p>VIT Amravati - CGPA: 8.66</p>
+                                        <div class="timeline-badge">Current</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-school"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">2022</div>
+                                        <h4>Senior Secondary (Class 12)</h4>
+                                        <p>Model School Rohtak - 79.2%</p>
+                                        <div class="timeline-badge">Completed</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">2020</div>
+                                        <h4>Secondary (Class 10)</h4>
+                                        <p>Model School Rohtak - 89.6%</p>
+                                        <div class="timeline-badge">Completed</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-code"></i>
+                    <span>Skills</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="title-word">Technical</span>
+                    <span class="title-word">Arsenal</span>
+                </h2>
+                <p class="section-subtitle">Mastering the tools that build the future</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skills-navigation">
+                    <div class="skill-categories">
+                        <button class="category-btn active" data-category="programming">
+                            <i class="fas fa-code"></i>
+                            <span>Programming</span>
+                        </button>
+                        <button class="category-btn" data-category="web-dev">
+                            <i class="fas fa-globe"></i>
+                            <span>Web Development</span>
+                        </button>
+                        <button class="category-btn" data-category="ai-ml">
+                            <i class="fas fa-brain"></i>
+                            <span>AI/ML</span>
+                        </button>
+                        <button class="category-btn" data-category="tools">
+                            <i class="fas fa-tools"></i>
+                            <span>Tools & Office</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="skills-content">
+                    <div class="skill-category active" data-category="programming">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-java"></i>
+                                </div>
+                                <h4>Proficient in Java</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Proficient in Java programming with strong object-oriented concepts, data structures, and algorithm implementation.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <h4>Skilled in Python Programming</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="95"></div>
+                                    </div>
+                                    <span class="level-text">Skilled</span>
+                                </div>
+                                <p>Skilled in Python programming for AI/ML development, data science, automation, and web applications.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h4>Strong Organizational Skills</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="92"></div>
+                                    </div>
+                                    <span class="level-text">Strong</span>
+                                </div>
+                                <p>Strong organizational skills with proficiency in prioritizing tasks and managing multiple projects efficiently.</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <h4>Proficient in Prioritizing Tasks</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Proficient in prioritizing tasks and managing multiple projects with excellent time management and organizational skills.</p>
+                                <div class="skill-wave"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="web-dev">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <h4>Web Development using HTML</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Web development using HTML with modern semantic markup and responsive design principles.</p>
+                                <div class="skill-ripple"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <h4>Cascading Style Sheets</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="85"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Cascading Style Sheets (CSS) for styling web pages with modern layouts and responsive designs.</p>
+                                <div class="skill-gradient"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Cross-functional Teamwork</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Experienced</span>
+                                </div>
+                                <p>Cross-functional teamwork with strong written communication and collaborative project management.</p>
+                                <div class="skill-wave"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h4>Database Management with MySQL</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="80"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Database management with MySQL for data storage, retrieval, and optimization in web applications.</p>
+                                <div class="skill-data-stream"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="ai-ml">
+                        <div class="skills-grid">
+                            <div class="skill-card featured-skill">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h4>Proficient in Artificial Intelligence</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="93"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Proficient in artificial intelligence concepts, algorithms, and practical implementation of AI solutions.</p>
+                                <div class="skill-neural-network">
+                                    <div class="neural-node"></div>
+                                    <div class="neural-node"></div>
+                                    <div class="neural-node"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card featured-skill">
+                                <div class="skill-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h4>Experience with Machine Learning Techniques</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Experienced</span>
+                                </div>
+                                <p>Experience with machine learning techniques including supervised and unsupervised learning algorithms.</p>
+                                <div class="skill-matrix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="tools">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <h4>Experienced with Microsoft Office Applications</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="88"></div>
+                                    </div>
+                                    <span class="level-text">Experienced</span>
+                                </div>
+                                <p>Experienced with Microsoft Office applications for documentation, presentations, and data analysis.</p>
+                                <div class="skill-docs"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h4>Strong Written Communication</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="92"></div>
+                                    </div>
+                                    <span class="level-text">Strong</span>
+                                </div>
+                                <p>Strong written communication skills for technical documentation and professional correspondence.</p>
+                                <div class="skill-connection">
+                                    <div class="connection-node"></div>
+                                    <div class="connection-line"></div>
+                                    <div class="connection-node"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI/ML Specialization Section -->
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="tools">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-docker"></i>
+                                </div>
+                                <h4>DevOps</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" data-level="88"></div>
+                                    </div>
+                                    <span class="level-text">Advanced</span>
+                                </div>
+                                <p>Docker, Kubernetes, CI/CD pipelines, infrastructure as code, and automated deployment strategies.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <h4>Version Control</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" data-level="95"></div>
+                                    </div>
+                                    <span class="level-text">Expert</span>
+                                </div>
+                                <p>Git workflows, GitHub/GitLab, branching strategies, code review processes, and team collaboration.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h4>Development Tools</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" data-level="92"></div>
+                                    </div>
+                                    <span class="level-text">Expert</span>
+                                </div>
+                                <p>VS Code, WebStorm, debugging tools, testing frameworks, and productivity optimization.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <h4>Analytics</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill" data-level="80"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Google Analytics, performance monitoring, error tracking, and application observability tools.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="specialization" class="section experience-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="title-word">Education</span>
+                </h2>
+                <p class="section-subtitle">Academic journey and continuous learning</p>
+            </div>
+            
+            <div class="experience-timeline">
+                <div class="experience-item glass-effect">
+                    <div class="experience-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Bachelor's of Technology in Computer Science</h3>
+                            <div class="experience-company">
+                                <span class="company-name">Vellore Institute of Technology, Amravati, India</span>
+                                <span class="experience-type">Expected June 2026</span>
+                            </div>
+                            <div class="experience-duration">June 2026</div>
+                        </div>
+                        <div class="experience-description">
+                            <p>Currently pursuing a B.Tech in CSE with a focused specialization in AI/ML, covering core subjects such as Machine Learning, Deep Learning, Natural Language Processing, Data Structures, and Algorithm Design. Demonstrated strong academic performance with a CGPA of 8.66, reflecting analytical strength, problem-solving skills, and technical proficiency in modern computing technologies.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item glass-effect">
+                    <div class="experience-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Senior Secondary Education</h3>
+                            <div class="experience-company">
+                                <span class="company-name">Model School, Rohtak</span>
+                                <span class="experience-type">Class 12</span>
+                            </div>
+                            <div class="experience-duration">July 2022</div>
+                        </div>
+                        <div class="experience-description">
+                            <p>I secured <strong>79.2%</strong> in my Senior Secondary (Class 12) examinations, reflecting a strong academic foundation and consistent performance. This achievement demonstrates my dedication, discipline, and readiness to excel in specialized technical fields.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item glass-effect">
+                    <div class="experience-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Secondary Education</h3>
+                            <div class="experience-company">
+                                <span class="company-name">Model School, Rohtak</span>
+                                <span class="experience-type">Class 10</span>
+                            </div>
+                            <div class="experience-duration">June 2020</div>
+                        </div>
+                        <div class="experience-description">
+                            <p>I secured <strong>89.6%</strong> in my Secondary (Class 10) examinations, which evinces a strong academic foundation and set the tone for maintaining a consistent and commendable academic record in the subsequent years.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Excellence Section -->
+    <section id="academics" class="section academics-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Academic Excellence</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="title-word">Academic</span>
+                    <span class="title-word">Achievements</span>
+                </h2>
+                <p class="section-subtitle">Consistent academic performance and continuous learning journey</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skills-navigation">
+                    <div class="skill-categories">
+                        <button class="category-btn active" data-category="education">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education</span>
+                        </button>
+                        <button class="category-btn" data-category="certifications">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certifications</span>
+                        </button>
+                        <button class="category-btn" data-category="achievements">
+                            <i class="fas fa-trophy"></i>
+                            <span>Achievements</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="skills-content">
+                    <div class="skill-category active" data-category="education">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <h4>B.Tech Computer Science & Engineering</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="87"></div>
+                                    </div>
+                                    <span class="level-text">8.66 CGPA</span>
+                                </div>
+                                <p>VIT Amravati, Maharashtra (2021-2025). Final Year Student specializing in AI/ML with strong academic record.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                                <h4>Senior Secondary (12th Grade)</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">89.6%</span>
+                                </div>
+                                <p>Haryana Board (2021). Science Stream with distinction, PCM focus and strong foundation in mathematics.</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="certifications">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-google"></i>
+                                </div>
+                                <h4>Google AI for Anyone</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="95"></div>
+                                    </div>
+                                    <span class="level-text">Certified</span>
+                                </div>
+                                <p>Fundamental AI concepts and applications certification from Google with comprehensive understanding of AI principles.</p>
+                                <div class="skill-ripple"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-google"></i>
+                                </div>
+                                <h4>Google AI for JavaScript developers with TensorFlow.js</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="88"></div>
+                                    </div>
+                                    <span class="level-text">Certified</span>
+                                </div>
+                                <p>Advanced certification in machine learning using TensorFlow.js for web applications and browser-based AI.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-java"></i>
+                                </div>
+                                <h4>Introduction to Java Programming</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="85"></div>
+                                    </div>
+                                    <span class="level-text">Certified</span>
+                                </div>
+                                <p>Starting to code in Java - Professional certification covering OOP concepts and Java development fundamentals.</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-google"></i>
+                                </div>
+                                <h4>Google Cloud Computing Foundations</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Certified</span>
+                                </div>
+                                <p>Cloud Computing Fundamentals with hands-on experience in GCP services and infrastructure management.</p>
+                                <div class="skill-wave"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h4>Oracle AI Foundation Associate</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="87"></div>
+                                    </div>
+                                    <span class="level-text">Certified</span>
+                                </div>
+                                <p>Oracle AI Foundation certification demonstrating understanding of AI principles and Oracle's AI ecosystem.</p>
+                                <div class="skill-ripple"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h4>Oracle Generative AI</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="85"></div>
+                                    </div>
+                                    <span class="level-text">Certified</span>
+                                </div>
+                                <p>Advanced Oracle certification in Generative AI technologies, LLMs, and modern AI application development.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h4>Oracle MultiCloud Architect Professional</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="88"></div>
+                                    </div>
+                                    <span class="level-text">Certified</span>
+                                </div>
+                                <p>Professional certification in multi-cloud architecture design, deployment strategies, and enterprise cloud solutions.</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="achievements">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h4>Academic Excellence Record</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="92"></div>
+                                    </div>
+                                    <span class="level-text">Outstanding</span>
+                                </div>
+                                <p>Consistent academic performance across all levels with strong foundation in computer science fundamentals.</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h4>AI/ML Specialization</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="88"></div>
+                                    </div>
+                                    <span class="level-text">Advanced</span>
+                                </div>
+                                <p>Specialized focus in Artificial Intelligence and Machine Learning with practical project implementations.</p>
+                                <div class="skill-wave"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h4>Multi-Language Programming</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Expert</span>
+                                </div>
+                                <p>Proficiency in multiple programming languages including Python, Java, JavaScript, and web technologies.</p>
+                                <div class="skill-ripple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Portfolio</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="title-word">Featured</span>
+                    <span class="title-word">Projects</span>
+                </h2>
+                <p class="section-subtitle">Showcasing innovation and technical excellence</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skills-navigation">
+                    <div class="skill-categories">
+                        <button class="category-btn active" data-category="ai-ml">
+                            <i class="fas fa-brain"></i>
+                            <span>AI/ML Projects</span>
+                        </button>
+                        <button class="category-btn" data-category="web-dev">
+                            <i class="fas fa-globe"></i>
+                            <span>Web Development</span>
+                        </button>
+                        <button class="category-btn" data-category="featured">
+                            <i class="fas fa-star"></i>
+                            <span>Featured Work</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="skills-content">
+                    <div class="skill-category active" data-category="ai-ml">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <h4>Fake News Detection System</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="95"></div>
+                                    </div>
+                                    <span class="level-text">95% Accuracy</span>
+                                </div>
+                                <p>End-to-end machine learning pipeline for classifying news articles as real or fake using advanced NLP techniques.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h4>AI Healthcare Chatbot for Symptom Checking</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="88"></div>
+                                    </div>
+                                    <span class="level-text">Real-time AI</span>
+                                </div>
+                                <p>Intelligent chatbot to predict health conditions from symptoms using NLP, Flask and Streamlit integration.</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h4>Machine Learning Model Development</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Advanced</span>
+                                </div>
+                                <p>Multi-label classification models using Random Forest, Logistic Regression with comprehensive evaluation metrics.</p>
+                                <div class="skill-wave"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="web-dev">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <h4>Professional Portfolio Website</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="92"></div>
+                                    </div>
+                                    <span class="level-text">Modern Design</span>
+                                </div>
+                                <p>Responsive portfolio website with interactive elements, GSAP animations, and professional color palette.</p>
+                                <div class="skill-ripple"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <h4>Interactive Task Management System</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="85"></div>
+                                    </div>
+                                    <span class="level-text">Full Stack</span>
+                                </div>
+                                <p>Comprehensive task management application with user authentication, real-time updates using React and Node.js.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h4>Modern Web Technologies</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="88"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>HTML5, CSS3, JavaScript, React, Node.js, MongoDB integration with modern development practices.</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="featured">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h4>Academic Project Excellence</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="95"></div>
+                                    </div>
+                                    <span class="level-text">Outstanding</span>
+                                </div>
+                                <p>Consistently delivered high-quality academic projects with innovative solutions and strong technical implementation.</p>
+                                <div class="skill-wave"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>Performance Optimization</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="87"></div>
+                                    </div>
+                                    <span class="level-text">Advanced</span>
+                                </div>
+                                <p>Focus on optimizing applications for speed, scalability, and user experience across different platforms.</p>
+                                <div class="skill-ripple"></div>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Collaborative Development</h4>
+                                <div class="skill-level">
+                                    <div class="level-bar">
+                                        <div class="level-fill animated-fill" data-level="90"></div>
+                                    </div>
+                                    <span class="level-text">Proficient</span>
+                                </div>
+                                <p>Experience in team collaboration, version control with Git, code review processes, and agile methodologies.</p>
+                                <div class="skill-particles">
+                                    <div class="particle"></div>
+                                    <div class="particle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="title-word">Let's</span>
+                    <span class="title-word">Connect</span>
+                </h2>
+                <p class="section-subtitle">Open to collaboration, learning opportunities, and exciting projects</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item glass-effect">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>honey11a13@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass-effect">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 8053291898</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass-effect">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Rohtak, India 124021</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass-effect">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/honey-nandal-110549274" target="_blank">Connect with me</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div class="contact-form glass-effect">
+                        <h3>Start Your Project</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" class="form-input" required>
+                                <label for="name" class="form-label">Full Name</label>
+                                <div class="form-underline"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" class="form-input" required>
+                                <label for="email" class="form-label">Email Address</label>
+                                <div class="form-underline"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" id="company" name="company" class="form-input">
+                                <label for="company" class="form-label">Company (Optional)</label>
+                                <div class="form-underline"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <select id="project-type" name="project-type" class="form-input" required>
+                                    <option value="">Select Project Type</option>
+                                    <option value="web-app">Web Application</option>
+                                    <option value="ai-ml">AI/ML Solution</option>
+                                    <option value="enterprise">Enterprise Software</option>
+                                    <option value="consultation">Technical Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <label for="project-type" class="form-label">Project Type</label>
+                                <div class="form-underline"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
+                                <label for="message" class="form-label">Project Details</label>
+                                <div class="form-underline"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary contact-submit">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-name">Honey Nandal</span>
+                            <span class="logo-title">AI/ML Enthusiast & Web Developer</span>
+                        </div>
+                    </div>
+                    <p>Final Year CSE Student at VIT Amravati, building intelligent systems and creating impactful tech solutions.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/honey-nandal-110549274" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:honey11a13@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#specialization">AI/ML Specialization</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Projects</h4>
+                        <ul>
+                            <li><a href="#projects">Portfolio</a></li>
+                            <li><a href="#projects">Fake News Detection</a></li>
+                            <li><a href="#projects">Healthcare Chatbot</a></li>
+                            <li><a href="#projects">Web Development</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Honey Nandal. All rights reserved.</p>
+                    <p>Built with modern web technologies</p>
+                </div>
+                <div class="footer-tech">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">AI/ML</span>
+                    <span class="tech-badge">Web Dev</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top glass-effect">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/three-background.js"></script>
+    <script src="js/advanced-effects.js"></script>
+</body>
+</html>

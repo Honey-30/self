@@ -1,0 +1,442 @@
+/* Mobile First Responsive Design */
+
+/* Extra Small Devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+  :root {
+    --section-padding: 60px 0;
+    --container-padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .hero-description {
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .stat-divider {
+    display: none;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .btn-hero {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 16px;
+  }
+  
+  .profile-card {
+    max-width: 280px;
+    padding: 1.5rem;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .avatar-image {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
+  
+  .loading-progress {
+    width: 200px;
+  }
+  
+  .loading-text {
+    font-size: 16px;
+  }
+  
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  .timeline-item {
+    padding-left: 2rem;
+  }
+  
+  .timeline::before {
+    left: 10px;
+  }
+  
+  .timeline-marker {
+    left: -10px;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .text-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .content-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .highlight-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .highlight-icon {
+    margin: 0 auto;
+  }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-content {
+    gap: 2rem;
+  }
+  
+  .profile-card {
+    max-width: 320px;
+  }
+  
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .btn-hero {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  :root {
+    --section-padding: 80px 0;
+  }
+  
+  .hero-content {
+    gap: 3rem;
+  }
+  
+  .about-grid {
+    gap: 2rem;
+  }
+  
+  .nav-menu {
+    gap: 1.5rem;
+  }
+  
+  .nav-text {
+    display: none;
+  }
+  
+  .nav-link {
+    padding: 0.75rem;
+  }
+  
+  .profile-card {
+    max-width: 300px;
+  }
+  
+  .timeline-container {
+    padding: 1.5rem;
+  }
+  
+  .text-content {
+    padding: 2.5rem;
+  }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+  
+  .hero-content {
+    gap: 3rem;
+  }
+  
+  .about-grid {
+    gap: 3rem;
+  }
+  
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: var(--container-max-width);
+  }
+  
+  .hero-content {
+    gap: 4rem;
+  }
+  
+  .about-grid {
+    gap: 4rem;
+  }
+  
+  .section-title {
+    font-size: 4rem;
+  }
+  
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+/* Ultra Wide Screens (1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .hero-content {
+    gap: 5rem;
+  }
+  
+  .about-grid {
+    gap: 5rem;
+  }
+}
+
+/* Landscape Orientation */
+@media (orientation: landscape) and (max-height: 600px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0 60px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    margin-bottom: 2rem;
+  }
+  
+  .hero-actions {
+    margin-bottom: 2rem;
+  }
+  
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .loading-screen,
+  .navbar,
+  .scroll-progress,
+  #cursor,
+  #bg-canvas,
+  .back-to-top,
+  .hero-bg,
+  .gradient-orbs {
+    display: none !important;
+  }
+  
+  .hero {
+    padding-top: 0;
+    min-height: auto;
+  }
+  
+  .section {
+    padding: 40px 0;
+    page-break-inside: avoid;
+  }
+  
+  .hero-content,
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .glass-effect {
+    border: 1px solid #ccc;
+    background: white;
+  }
+  
+  .btn {
+    border: 1px solid #333;
+    background: white;
+    color: black;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --navy-primary: #000000;
+    --navy-secondary: #1a1a1a;
+    --white: #ffffff;
+    --gold-accent: #ffff00;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.3);
+  }
+  
+  .glass-effect {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--gold-accent);
+  }
+  
+  .btn-outline {
+    border-width: 3px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .loading-screen {
+    display: none;
+  }
+  
+  .orb,
+  .particle,
+  .logo-ring,
+  .avatar-ring,
+  .status-dot,
+  .scroll-wheel {
+    animation: none;
+  }
+  
+  .cursor-ring,
+  .cursor-dot {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+}
+
+/* Dark Mode (if system preference) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --navy-primary: #f8f9fa;
+    --navy-secondary: #e9ecef;
+    --charcoal: #495057;
+    --white: #212529;
+    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --gradient-hero: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+  }
+  
+  .loading-screen {
+    background: var(--gradient-hero);
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .social-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-glow:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+  
+  .cursor-ring,
+  .cursor-dot {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-data: reduce) {
+  #bg-canvas {
+    display: none;
+  }
+  
+  .gradient-orbs {
+    display: none;
+  }
+  
+  .loading-particles {
+    display: none;
+  }
+}
+
+/* Focus Styles for Keyboard Navigation */
+@media (any-hover: none) {
+  .nav-link:focus,
+  .btn:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 3px solid var(--gold-accent);
+    outline-offset: 2px;
+  }
+  
+  .nav-link:focus {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
