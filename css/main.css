@@ -76,6 +76,33 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  /* Ensure content is visible by default */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Loading screen will hide content initially */
+body:not(.loaded) .hero,
+body:not(.loaded) .section {
+  opacity: 0;
+}
+
+/* Content becomes visible when loaded */
+body.loaded .hero,
+body.loaded .section {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Fallback: If JS fails, show content after 5s */
+@keyframes showContentFallback {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+body:not(.loaded) .hero,
+body:not(.loaded) .section {
+  animation: showContentFallback 0.5s ease-in-out 5s forwards;
 }
 
 /* Subtle Body Background */

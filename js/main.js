@@ -2,6 +2,7 @@
 
 class PortfolioApp {
     constructor() {
+        this.loadingTimeout = null;
         this.init();
     }
 
@@ -9,6 +10,18 @@ class PortfolioApp {
         this.setupEventListeners();
         this.initializeComponents();
         this.startLoadingSequence();
+        
+        // Emergency fallback - ensure content shows even if everything fails
+        this.loadingTimeout = setTimeout(() => {
+            if (!document.body.classList.contains('loaded')) {
+                console.log('Emergency fallback: Forcing content to show');
+                document.body.classList.add('loaded');
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.style.display = 'none';
+                }
+            }
+        }, 6000);
     }
 
     setupEventListeners() {
@@ -54,6 +67,13 @@ class PortfolioApp {
         const progressPercentage = document.querySelector('.progress-percentage');
         const typewriterText = document.querySelector('.typewriter-text');
 
+        // Ensure elements exist before proceeding
+        if (!loadingScreen || !progressFill || !progressPercentage || !typewriterText) {
+            console.warn('Loading elements not found, hiding loading screen immediately');
+            this.finishLoading();
+            return;
+        }
+
         const messages = [
             'Initializing portfolio...',
             'Loading components...',
@@ -64,125 +84,162 @@ class PortfolioApp {
 
         let messageIndex = 0;
         let progress = 0;
+        const maxDuration = 3000; // Maximum 3 seconds
+        const startTime = Date.now();
 
         const updateProgress = () => {
-            progress += Math.random() * 20;
-            if (progress > 100) progress = 100;
+            const elapsed = Date.now() - startTime;
+            progress = Math.min((elapsed / maxDuration) * 100, 100);
 
             progressFill.style.width = `${progress}%`;
             progressPercentage.textContent = `${Math.round(progress)}%`;
 
-            if (messageIndex < messages.length && progress > messageIndex * 20) {
+            const newMessageIndex = Math.floor((progress / 100) * messages.length);
+            if (newMessageIndex < messages.length && newMessageIndex !== messageIndex) {
+                messageIndex = newMessageIndex;
                 typewriterText.textContent = messages[messageIndex];
-                messageIndex++;
             }
 
-            if (progress < 100) {
-                setTimeout(updateProgress, 200 + Math.random() * 300);
+            if (progress < 100 && elapsed < maxDuration) {
+                requestAnimationFrame(updateProgress);
             } else {
-                setTimeout(() => this.finishLoading(), 500);
+                setTimeout(() => this.finishLoading(), 300);
             }
         };
 
-        updateProgress();
+        // Start the loading animation
+        requestAnimationFrame(updateProgress);
+
+        // Failsafe: Force completion after 4 seconds
+        setTimeout(() => {
+            if (!document.body.classList.contains('loaded')) {
+                console.log('Loading failsafe triggered');
+                this.finishLoading();
+            }
+        }, 4000);
     }
 
     finishLoading() {
+        // Clear the emergency timeout
+        if (this.loadingTimeout) {
+            clearTimeout(this.loadingTimeout);
+            this.loadingTimeout = null;
+        }
+
         const loadingScreen = document.getElementById('loading-screen');
         
-        // Fade out loading screen
-        loadingScreen.classList.add('hidden');
+        if (loadingScreen) {
+            // Fade out loading screen
+            loadingScreen.classList.add('hidden');
+        }
         
-        // Initialize GSAP animations
+        // Mark as loaded immediately
+        document.body.classList.add('loaded');
+        
+        // Initialize GSAP animations with error handling
         setTimeout(() => {
-            this.initGSAPAnimations();
-            document.body.classList.add('loaded');
-        }, 500);
+            try {
+                this.initGSAPAnimations();
+            } catch (error) {
+                console.warn('GSAP animations failed to initialize:', error);
+                // Continue without animations if GSAP fails
+            }
+        }, 100);
     }
 
     initGSAPAnimations() {
-        // Register GSAP plugins
-        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        // Check if GSAP is available
+        if (typeof gsap === 'undefined') {
+            console.warn('GSAP not loaded, skipping animations');
+            return;
+        }
 
-        // Hero section animations
-        const tl = gsap.timeline();
-        
-        tl.from('.hero-greeting', {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: 'power2.out'
-        })
-        .from('.hero-title .title-line', {
-            opacity: 0,
-            y: 50,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: 'power2.out'
-        }, '-=0.4')
-        .from('.hero-subtitle', {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            ease: 'power2.out'
-        }, '-=0.3')
-        .from('.hero-description', {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            ease: 'power2.out'
-        }, '-=0.2')
-        .from('.hero-stats .stat-item', {
-            opacity: 0,
-            y: 30,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: 'power2.out'
-        }, '-=0.2')
-        .from('.hero-actions .btn', {
-            opacity: 0,
-            y: 30,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: 'power2.out'
-        }, '-=0.2')
-        .from('.profile-card', {
-            opacity: 0,
-            x: 50,
-            duration: 0.8,
-            ease: 'power2.out'
-        }, '-=0.6');
+        try {
+            // Register GSAP plugins
+            gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-        // Section animations
-        gsap.utils.toArray('.section').forEach(section => {
-            gsap.from(section.querySelectorAll('.animate-on-scroll'), {
+            // Hero section animations
+            const tl = gsap.timeline();
+            
+            tl.from('.hero-greeting', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out'
+            })
+            .from('.hero-title .title-line', {
                 opacity: 0,
                 y: 50,
                 duration: 0.8,
                 stagger: 0.2,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
+                ease: 'power2.out'
+            }, '-=0.4')
+            .from('.hero-subtitle', {
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                ease: 'power2.out'
+            }, '-=0.3')
+            .from('.hero-description', {
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                ease: 'power2.out'
+            }, '-=0.2')
+            .from('.hero-stats .stat-item', {
+                opacity: 0,
+                y: 30,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: 'power2.out'
+            }, '-=0.2')
+            .from('.hero-actions .btn', {
+                opacity: 0,
+                y: 30,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: 'power2.out'
+            }, '-=0.2')
+            .from('.profile-card', {
+                opacity: 0,
+                x: 50,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.6');
 
-        // Parallax effects
-        gsap.utils.toArray('.parallax-element').forEach(element => {
-            gsap.to(element, {
-                y: '-20%',
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: true
-                }
+            // Section animations
+            gsap.utils.toArray('.section').forEach(section => {
+                gsap.from(section.querySelectorAll('.animate-on-scroll'), {
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    stagger: 0.2,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
             });
-        });
+
+            // Parallax effects
+            gsap.utils.toArray('.parallax-element').forEach(element => {
+                gsap.to(element, {
+                    y: '-20%',
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                });
+            });
+        } catch (error) {
+            console.warn('Error initializing GSAP animations:', error);
+        }
     }
 
     initScrollAnimations() {
@@ -455,7 +512,32 @@ class MouseTracker {
     }
 }
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', () => {
-    new PortfolioApp();
-});
+// Initialize the application with multiple fallbacks
+function initializePortfolio() {
+    try {
+        new PortfolioApp();
+    } catch (error) {
+        console.error('Portfolio initialization failed:', error);
+        // Fallback: Show content immediately if initialization fails
+        document.body.classList.add('loaded');
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+        }
+    }
+}
+
+// Multiple initialization triggers
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePortfolio);
+} else {
+    initializePortfolio();
+}
+
+// Additional fallback if DOM events fail
+setTimeout(() => {
+    if (!document.body.classList.contains('loaded')) {
+        console.log('Timeout fallback: Initializing portfolio');
+        initializePortfolio();
+    }
+}, 1000);
